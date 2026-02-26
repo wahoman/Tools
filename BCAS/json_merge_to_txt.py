@@ -7,7 +7,7 @@ from multiprocessing import Pool, cpu_count, freeze_support
 # [1] 사용자 설정 구역
 # =========================================================
 # 작업할 JSON 폴더 경로 (병합된 폴더 경로를 넣으세요)
-json_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY9-1\json_labels"
+json_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY13-2\json_labels"
 
 # 기능 스위치
 DO_CONVERT_TXT = True       # 라벨 변환 (JSON -> TXT)

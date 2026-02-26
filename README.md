@@ -3,6 +3,12 @@
 이 저장소는 로컬 툴들을 자동으로 정리하여 Git 관리용으로 만든 것입니다.
 **자동 생성 시점:** Git
 
+### 📁 Root (최상위)
+| 파일명 | 기능 설명 |
+| :--- | :--- |
+| `Rebuild_from_db.py` | 설명 없음 |
+| `Version_save_db.py` | 설명 없음 |
+
 ### 📁 NIA
 | 파일명 | 기능 설명 |
 | :--- | :--- |
@@ -108,17 +114,34 @@
 | 파일명 | 기능 설명 |
 | :--- | :--- |
 | `BCAS_colormapping.py` | 설명 없음 |
-| `auto_labeling_0108.py` | 설명 없음 |
-| `Rebuild_from_db.py` | 설명 없음 |
-| `Version_save_db.py` | 설명 없음 |
-| `label_edit.py` | 설명 없음 |
-| `label_tool_combined.py` | 설명 없음 |
+| `All_folder_classname_extract.py` | 설명 없음 |
+| `BCAS_mismatch.py` | 설명 없음 |
 | `check_files.py` | 설명 없음 |
 | `check_labels.py` | 설명 없음 |
-| `del.py` | 설명 없음 |
-| `json_merge.py` | 설명 없음 |
+| `filename_del.py` | 설명 없음 |
+| `folder_classname.py` | 설명 없음 |
+| `json_label_del.py` | 설명 없음 |
+| `json_merge_app.py` | 설명 없음 |
 | `json_merge_to_txt.py` | 설명 없음 |
 | `json_to_txt.py` | 설명 없음 |
+| `knitting_del.py` | 설명 없음 |
+| `label_edit.py` | 설명 없음 |
+| `label_tool_combined_v2.py` | 설명 없음 |
+| `label_viewer_v2.py` | 설명 없음 |
+
+### 📁 BCAS\BCAS_Labeling
+| 파일명 | 기능 설명 |
+| :--- | :--- |
+| `organize_printer.py` | 설명 없음 |
+| `auto_labeling_noniou.py` | 설명 없음 |
+| `auto_labeling_MORPH.py` | 설명 없음 |
+| `organize_data.py` | 설명 없음 |
+| `split_data.py` | 설명 없음 |
+| `naming_sub.py` | 설명 없음 |
+| `naming.py` | 설명 없음 |
+| `naming_rebuild.py` | 설명 없음 |
+| `multi_naming.py` | 설명 없음 |
+| `auto_labeling.py` | 설명 없음 |
 
 ### 📁 RT-DETR
 | 파일명 | 기능 설명 |

@@ -6,8 +6,8 @@ from multiprocessing import Pool, cpu_count
 # =========================================================
 # [1] 설정 경로
 # =========================================================
-json_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY9-2\json_labels"
-txt_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY9-2\labels"
+json_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY1\json_labels"
+txt_folder = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY1\labels"
 # =========================================================
 
 def process_single_file(txt_file):
@@ -16,7 +16,7 @@ def process_single_file(txt_file):
     """
     try:
         base_name = os.path.splitext(os.path.basename(txt_file))[0]
-        json_path = os.path.join(json_folder, base_name + ".json")\
+        json_path = os.path.join(json_folder, base_name + ".json")
         
         # JSON 파일이 없으면 패스
         if not os.path.exists(json_path):
@@ -65,7 +65,9 @@ def process_single_file(txt_file):
         return 1 # 성공
 
     except Exception as e:
-        print(f"❌ 에러({base_name}): {e}")
+        # 에러 발생 시 파일명 출력을 위해 안전하게 처리
+        name = os.path.basename(txt_file)
+        print(f"❌ 에러({name}): {e}")
         return 0
 
 def main():
@@ -75,6 +77,31 @@ def main():
     if not txt_files:
         print("❌ TXT 파일이 없습니다.")
         return
+
+    # =========================================================
+    # [추가된 기능] TXT가 없는 JSON 파일 삭제하여 개수 맞추기
+    # =========================================================
+    # TXT 파일들의 순수 이름(확장자 제외)만 추출하여 Set으로 만듦
+    txt_basenames = {os.path.splitext(os.path.basename(f))[0] for f in txt_files}
+    json_files = glob.glob(os.path.join(json_folder, "*.json"))
+    
+    deleted_count = 0
+    for j_file in json_files:
+        j_basename = os.path.splitext(os.path.basename(j_file))[0]
+        # JSON 파일명(확장자 제외)이 TXT 파일 목록에 없다면 삭제
+        if j_basename not in txt_basenames:
+            try:
+                os.remove(j_file)
+                deleted_count += 1
+            except Exception as e:
+                print(f"❌ JSON 삭제 실패 ({j_basename}): {e}")
+    
+    if deleted_count > 0:
+        print(f"🗑️ 짝이 없는 JSON 파일 {deleted_count}개를 삭제하여 개수를 맞췄습니다.")
+    else:
+        print("✨ 삭제할 JSON 파일이 없습니다. (이미 짝이 맞음)")
+    print("-" * 50)
+    # =========================================================
 
     # CPU 코어 개수 확인
     num_cores = cpu_count()

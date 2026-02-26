@@ -2,7 +2,7 @@ import os
 import glob
 
 # 1. 파일 경로 (r을 붙여서 경로 에러 방지)
-folder_path = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY9-2\Laptop_labels"
+folder_path = r"C:\Users\hgy84\Desktop\BCAS\BCAS_Labeling\DAY1\labels"
 
 # 2. 바꿀 새로운 이름 (여기에 원하는 클래스명이나 숫자를 넣으세요)
 new_name = "Laptop" 
